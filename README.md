@@ -6,7 +6,7 @@ This is the backend API for **Scribbles & Scripts**, a modern MERN stack blog ap
 ## 🛠️ Tech Stack
 - **Node.js** - JavaScript runtime environment
 - **Express.js** - Web application framework
-- **MongoDB** - NoSQL database with Mongoose ODM
+- **MongoDB Atlas** - Cloud NoSQL database with Mongoose ODM
 - **JWT** - JSON Web Token for authentication
 - **bcryptjs** - Password hashing library
 - **CORS** - Cross-Origin Resource Sharing middleware
@@ -46,14 +46,16 @@ This is the backend API for **Scribbles & Scripts**, a modern MERN stack blog ap
 3. **Environment Setup**
    Create a `.env` file in the root directory:
    ```env
-   MONGODB_URI=mongodb://localhost:27017/blogapp
+   MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/blogapp?retryWrites=true&w=majority
    JWT_SECRET=your_super_secret_jwt_key_here
    PORT=5002
    ```
+   
+   **Note**: For MongoDB Atlas, use your Atlas connection string. For local MongoDB, use `mongodb://localhost:27017/blogapp`
 
-4. **Start MongoDB**
-   - For local MongoDB: `mongod`
-   - Or use MongoDB Atlas connection string
+4. **Database Connection**
+   - **MongoDB Atlas**: Use the connection string from your Atlas cluster (recommended for production)
+   - **Local MongoDB**: Start with `mongod` and use local connection string
 
 5. **Run the application**
    ```bash
