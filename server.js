@@ -88,6 +88,16 @@ app.get('/api/health', (req, res) => {
   });
 });
 
+// Debug endpoint (remove in production)
+app.get('/api/debug', (req, res) => {
+  res.json({
+    mongoUri: process.env.MONGODB_URI ? 'Set' : 'Not Set',
+    mongoUriStart: process.env.MONGODB_URI?.substring(0, 30) + '...',
+    nodeEnv: process.env.NODE_ENV,
+    port: process.env.PORT
+  });
+});
+
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`🚀 Server is running on port ${PORT}`);
   console.log(`📱 Environment: ${process.env.NODE_ENV || 'development'}`);
