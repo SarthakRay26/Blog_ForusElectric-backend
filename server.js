@@ -27,7 +27,6 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/blogapp',
   useNewUrlParser: true,
   useUnifiedTopology: true,
   serverSelectionTimeoutMS: 10000, // 10 seconds
-  bufferMaxEntries: 0,
   maxPoolSize: 10,
   socketTimeoutMS: 45000,
 })
