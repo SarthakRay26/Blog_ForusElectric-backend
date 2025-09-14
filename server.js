@@ -61,7 +61,8 @@ app.get('/', (req, res) => {
     message: 'Scribbles & Scripts API is running!',
     status: 'healthy',
     environment: process.env.NODE_ENV || 'development',
-    timestamp: new Date().toISOString()
+    timestamp: new Date().toISOString(),
+    version: '1.1'
   });
 });
 
