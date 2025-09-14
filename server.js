@@ -26,12 +26,13 @@ app.use(express.json());
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/blogapp', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  serverSelectionTimeoutMS: 10000, // 10 seconds
+  serverSelectionTimeoutMS: 15000, // 15 seconds
+  connectTimeoutMS: 15000,
   maxPoolSize: 10,
   socketTimeoutMS: 45000,
 })
-.then(() => console.log('MongoDB connected'))
-.catch(err => console.log('MongoDB connection error:', err));
+.then(() => console.log('✅ MongoDB connected successfully'))
+.catch(err => console.log('❌ MongoDB connection error:', err));
 
 // MongoDB connection events
 mongoose.connection.on('connected', () => {
@@ -45,6 +46,9 @@ mongoose.connection.on('error', (err) => {
 mongoose.connection.on('disconnected', () => {
   console.log('⚠️ Mongoose disconnected');
 });
+
+// Disable mongoose buffering
+mongoose.set('bufferCommands', false);
 
 // Routes
 try {
