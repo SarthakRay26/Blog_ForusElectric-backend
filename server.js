@@ -62,7 +62,7 @@ app.get('/', (req, res) => {
     status: 'healthy',
     environment: process.env.NODE_ENV || 'development',
     timestamp: new Date().toISOString(),
-    version: '1.1'
+    version: '1.2'
   });
 });
 
